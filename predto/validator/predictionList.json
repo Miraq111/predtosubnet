@@ -1,0 +1,7 @@
+{
+  "weather": ["temperature", "rainfall"],
+  "sports": ["football_match", "basketball_game"],
+  "science": ["earthquake", "volcanic_activity"],
+  "health": ["flu_outbreak", "air_quality"],
+  "entertainment": ["movie_box_office", "music_chart"]
+}
