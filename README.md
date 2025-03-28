@@ -1,14 +1,56 @@
-predto
-predto is a cutting-edge time-series prediction platform built to cater to a broad range of industries, including weather forecasting, gambling, betting, and other domains requiring accurate, real-time predictions. It utilizes a competitive ecosystem where miners (prediction models) strive to provide the most precise forecasts, earning incentives based on how well their predictions align with real-world outcomes.
+Predto Subnet
 
-Overview
-predto powers a dynamic competition among multiple miners, each equipped with advanced predictive models. The platform is designed to prioritize long-term accuracy, rewarding miners whose predictions consistently reflect real-world events. The competition fosters innovation in the field of predictive analytics, encouraging miners to continuously improve their models to stay ahead of the curve. By promoting this competitive spirit, predto ensures that only the most accurate models rise to the top, providing high-quality predictions across various sectors.
+Description
+
+The Predto Subnet is a decentralized system designed to validate real world Projection. It uses an accuracy-based weighting system to determine the most reliable miners. This ensures that Projection are evaluated fairly and the most accurate contributors are rewarded.
+
+Getting Started
+
+Prerequisites
+
+Ensure you have Python 3.10+ installed on your system. You can verify this by running:
+
+python --version
+
+Installation
+
+Clone the repository to your local machine:
+
+git clone https://github.com/Miraq111/predtosubnet.git
+cd predtosubnet
+
+Install required dependencies:
+
+pip install -r requirements.txt
+
+Validator Setup
+
+Run the validator script to start validating predictions. Replace <name-of-your-com-key> with your actual key.
+
+python3 -m predto.validator.cli <name-of-your-com-key>
+
+Miner Setup
+
+Start your miner by running the miner application. Ensure your key is correctly configured.
+
+python3 -m predto.miner.cli <name-of-your-com-key>
 
 How It Works
-predto operates with two main participants: Validators and Miners, each playing a crucial role in maintaining the integrity and accuracy of the prediction system.
 
-Validators: Validators serve as the central coordinators within the predto ecosystem. Their primary responsibility is to request predictions from miners for various categories and across different timeframes, generally within the next 8 hours. Once they receive the predictions, they assess how well these forecasts align with actual outcomes. This evaluation is done through a sigmoid function, which quantifies the accuracy of each prediction. Validators then distribute rewards to miners based on their performance, incentivizing those who consistently make accurate predictions.
+Miners submit their Projection for a given task.
 
-Miners: Miners are the predictive models that respond to requests from validators. They are encouraged to use any methods or techniques that they believe will maximize the accuracy of their predictions. Miners are free to specialize in specific categories or domains, which allows them to fine-tune their models for better performance in particular areas, whether it be weather patterns, betting odds, or gambling outcomes. This flexibility enables miners to optimize their predictions and adapt to the ever-changing dynamics of each sector.
+Validator processes the work done by miners and compares them with the ground truth.
 
-# predtosubnet
+Weight Calculation: Miners receive weights based on their historical accuracy using an exponentially weighted moving average (EWMA).
+
+Best Miner Selection: The miner with the highest weighted accuracy score is selected.
+
+Updating Accuracy: The best miner's accuracy is updated for future evaluations.
+
+Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, create a new branch, and submit a pull request.
+
+License
+
+This project is licensed under the MIT License.
